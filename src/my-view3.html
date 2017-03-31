@@ -1,0 +1,115 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/simple-modal/simple-modal.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="my-view3">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      .klant {
+          min-width: 100px;
+          text-align: center;
+          padding-left: 10px;
+      }
+
+      .gerecht, .status {
+          text-align: center;
+          padding: 10px;
+      }
+
+      table {
+          width: 100%;
+      }
+
+      tr:nth-child(even) {
+          background: #CCC
+      }
+    </style>
+    <paper-dialog id="dialog" modal>
+      <h2>Gerechtnaam</h2>
+      <p>
+        aan het bereiden
+      </p>
+      <div class="buttons">
+        <paper-button raised dialog-confirm autofocus>Klaar</paper-button>
+      </div>
+    </paper-dialog>
+    <div class="card">
+      <h1>Gerecht bereiden</h1>
+      <table>
+          <tr>
+              <th class="ingredienten">Klant</th>
+              <th class="gerecht">Gerecht</th>
+              <th class="status">Status</th>
+
+          </tr>
+          <tr on-tap="processOrderTap">
+              <td class="klant">[klant]</td>
+              <td class="gerecht">
+                [gerechtnaam]
+              </td>
+              <td class="status">Klaar om te bereiden</td>
+          </tr>
+          <tr on-tap="processOrderTap">
+            <td class="klant">[klant]</td>
+            <td class="gerecht">
+              [gerechtnaam]
+            </td>
+            <td class="status">Klaar om te bereiden</td>
+          </tr>
+          <tr on-tap="processOrderTap">
+            <td class="klant">[klant]</td>
+            <td class="gerecht">
+              [gerechtnaam]
+            </td>
+            <td class="status">Klaar om te bereiden</td>
+          </tr>
+          <tr on-tap="processOrderTap">
+            <td class="klant">[klant]</td>
+            <td class="gerecht">
+              [gerechtnaam]
+            </td>
+            <td class="status">Klaar om te bereiden</td>
+          </tr>
+          <tr on-tap="processOrderTap">
+            <td class="klant">[klant]</td>
+            <td class="gerecht">
+              [gerechtnaam]
+            </td>
+            <td class="status">Gereed</td>
+          </tr>
+      </table>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-view3',
+      ready: function(){
+
+      },
+
+      processOrderTap: function(e){
+          var body = document.querySelector('body');
+         Polymer.dom(body).appendChild(this.$.dialog);
+         this.$.dialog.open();
+      }
+    });
+  </script>
+</dom-module>
